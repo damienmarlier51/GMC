@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Objective of the assignment is to predict which borrowers will experience financial distress in the next two years.
+Objective of the challenge is to predict which borrowers will experience financial distress in the next two years.
 
-In this assignment, following steps are covered:
+For this challenge, I covered the following steps:
 
  - EDA
  - Training initial model (with default parameters)
@@ -48,7 +48,7 @@ If you would like to get started ASAP, run these make commands in the following 
 
 Run the following command:<br/>
 ```make venv```<br/>
-It will install all necessary packages used in this assignment.
+It will install all necessary packages used in this challenge.
 
 ## 4) Exploratory Data Analysis
 
@@ -108,8 +108,6 @@ Public Score: 0.85998 (211th)
 
 ## 6) Reaching top 100
 
-(Done outside of the 3-hour time assignment window given)<br/>
-
 To reach a higher score, I considered two options:<br/>
 
  - Hyperparameter tuning<br/>
@@ -133,6 +131,7 @@ Optimizer may take a while to run.<br/>
 Best set of parameters retrieved from the optimization process is the following one:
 
 ```
+<<<<<<< HEAD
 {
   "name": "opt_xgb_model",
   "params": {
@@ -152,3 +151,24 @@ Best set of parameters retrieved from the optimization process is the following 
 
 Private Score: 0.86817 (45th)<br/>
 Public Score: 0.86169 (80th)
+=======
+{
+  "name": "opt_xgb_model",
+  "params": {
+    "booster": "gbtree",
+    "colsample_bytree": 0.65,
+    "eta": 0.065,
+    "gamma": 0.84,
+    "max_depth": 5,
+    "min_child_weight": 5.0,
+    "n_estimators": 130,
+    "subsample": 0.84
+  }
+}
+```
+
+### b) Submission results
+
+Private Score: 0.86800 (59th)<br/>
+Public Score: 0.86173 (80th)
+>>>>>>> f0dda66f1298c6b9d62a9901b69d8c0737235d0b
