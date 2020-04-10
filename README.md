@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Objective of the assignment is to predict which borrowers will experience financial distress in the next two years. 
+Objective of the assignment is to predict which borrowers will experience financial distress in the next two years.
 
 In this assignment, following steps are covered:
 
@@ -106,7 +106,7 @@ In this notebook, we are investigating different plots and metrics to assess mod
 Private Score: 0.86645 (150th)<br/>
 Public Score: 0.85998 (211th)
 
-## 6) Reaching top 100 
+## 6) Reaching top 100
 
 (Done outside of the 3-hour time assignment window given)<br/>
 
@@ -119,7 +119,7 @@ Because of time constraints, I opted for the first option.
 
 ### a) Run optimizer
 
-I used ```hyperopt``` package to find a set of XGBoost parameters such as model mean validation AUC over K-Folds is maximized. 
+I used ```hyperopt``` package to find a set of XGBoost parameters such as model mean validation AUC over K-Folds is maximized.
 TPE algorithm is picked to search the space for the best parameters.<br/>
 
 Search history is dumped at every round in ```models/opt_trials.pkl``` so that optimizer can be stopped and resumed  anytime.
@@ -137,15 +137,18 @@ Best set of parameters retrieved from the optimization process is the following 
   "name": "opt_xgb_model",
   "params": {
     "booster": "gbtree",
-    "colsample_bytree": 0.5,
-    "eta": 0.05,
-    "gamma": 0.55,
-    "max_depth": 3,
+    "colsample_bytree": 0.65,
+    "eta": 0.065,
+    "gamma": 0.84,
+    "max_depth": 5,
     "min_child_weight": 5.0,
-    "n_estimators": 170,
-    "subsample": 0.5
+    "n_estimators": 130,
+    "subsample": 0.84
   }
 }
 ```
 
 ### b) Submission results
+
+Private Score: 0.86800 (59th)<br/>
+Public Score: 0.86173 (80th)
