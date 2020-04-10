@@ -131,7 +131,6 @@ Optimizer may take a while to run.<br/>
 Best set of parameters retrieved from the optimization process is the following one:
 
 ```
-<<<<<<< HEAD
 {
   "name": "opt_xgb_model",
   "params": {
@@ -151,24 +150,3 @@ Best set of parameters retrieved from the optimization process is the following 
 
 Private Score: 0.86817 (45th)<br/>
 Public Score: 0.86169 (80th)
-=======
-{
-  "name": "opt_xgb_model",
-  "params": {
-    "booster": "gbtree",
-    "colsample_bytree": 0.65,
-    "eta": 0.065,
-    "gamma": 0.84,
-    "max_depth": 5,
-    "min_child_weight": 5.0,
-    "n_estimators": 130,
-    "subsample": 0.84
-  }
-}
-```
-
-### b) Submission results
-
-Private Score: 0.86800 (59th)<br/>
-Public Score: 0.86173 (80th)
->>>>>>> f0dda66f1298c6b9d62a9901b69d8c0737235d0b
