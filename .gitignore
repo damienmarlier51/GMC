@@ -87,13 +87,14 @@ target/
 
 # Added by Damien M
 *.csv
-venv
-models/*.pkl
-notebooks/*.nbconvert.ipynb
-
 !cs-test.csv
 !cs-training.csv
-
+venv_dm_fp
+models/*.pkl
+!def_xgb_model.pkl
+!opt_xgb_model.pkl
+!opt_trials.pkl
+notebooks/*.nbconvert.ipynb
 # To try when time to see if ensemble improves AUC
 train_ensemble.py
 ensemble_params.py
