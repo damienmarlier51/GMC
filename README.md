@@ -36,12 +36,12 @@ setup.py -> Use to install current package
 
 ## 2) Quickstart
 
-If you would like to get started ASAP, run these make commands in the following order:
-```make venv``` --> Set-up python virtual environment
-```make train_def``` --> Train initial model
-```make predict_def``` --> Predict using initial model 
-```make optimize``` --> Run Hyperparameter optimizer (Hyperopt)
-```make train_opt``` --> Train model with optimized parameters
+If you would like to get started ASAP, run these make commands in the following order:<br/>
+```make venv``` --> Set-up python virtual environment<br/>
+```make train_def``` --> Train initial model<br/>
+```make predict_def``` --> Predict using initial model <br/>
+```make optimize``` --> Run Hyperparameter optimizer (Hyperopt)<br/>
+```make train_opt``` --> Train model with optimized parameters<br/>
 ```make predict_opt``` --> Predict using optimized model
 
 ## 3) Set-up Environment
