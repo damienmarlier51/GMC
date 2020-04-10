@@ -59,8 +59,7 @@ In this notebook, we are looking there at any missing data in the dataset, what 
 ## 5) Train initial classifier
 
 First model is a XGBoost model. <br/>
-This model was chosen as it yields good results without much data transformation (such as normalization, clipping etc...) required.<br/>
-Its parameters can be found in ```params/def_xgb_model.json```.
+This model was chosen as it yields good results without much data transformation (such as normalization, clipping etc...) required. Its parameters can be found in ```params/def_xgb_model.json```. <br/>
 
 
 ```
