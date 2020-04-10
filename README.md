@@ -137,18 +137,18 @@ Best set of parameters retrieved from the optimization process is the following 
   "name": "opt_xgb_model",
   "params": {
     "booster": "gbtree",
-    "colsample_bytree": 0.65,
-    "eta": 0.065,
-    "gamma": 0.84,
-    "max_depth": 5,
-    "min_child_weight": 5.0,
-    "n_estimators": 130,
-    "subsample": 0.84
+    "colsample_bytree": 0.9,
+    "eta": 0.034,
+    "gamma": 0.5,
+    "max_depth": 4,
+    "min_child_weight": 6.0,
+    "n_estimators": 290,
+    "subsample": 0.56
   }
 }
 ```
 
 ### b) Submission results
 
-Private Score: 0.86800 (59th)<br/>
-Public Score: 0.86173 (80th)
+Private Score: 0.86817 (45th)<br/>
+Public Score: 0.86169 (80th)
