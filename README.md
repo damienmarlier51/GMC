@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Objective of the assignment is to predict which borrowers will experience financial distress in the next two years.
+Objective of the challenge is to predict which borrowers will experience financial distress in the next two years.
 
-In this assignment, following steps are covered:
+For this challenge, I covered the following steps:
 
  - EDA
  - Training initial model (with default parameters)
@@ -48,7 +48,7 @@ If you would like to get started ASAP, run these make commands in the following 
 
 Run the following command:<br/>
 ```make venv```<br/>
-It will install all necessary packages used in this assignment.
+It will install all necessary packages used in this challenge.
 
 ## 4) Exploratory Data Analysis
 
@@ -107,8 +107,6 @@ Private Score: 0.86645 (150th)<br/>
 Public Score: 0.85998 (211th)
 
 ## 6) Reaching top 100
-
-(Done outside of the 3-hour time assignment window given)<br/>
 
 To reach a higher score, I considered two options:<br/>
 
