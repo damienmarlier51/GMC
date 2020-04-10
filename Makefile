@@ -1,6 +1,6 @@
 .PHONY: train_def predict_def run_def train_opt predict_opt run_opt optimize
 
-VENV_NAME = venv
+VENV_NAME = venv_dm_fp
 
 # Makefile
 venv: $(VENV_NAME)/bin/activate
