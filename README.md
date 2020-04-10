@@ -130,7 +130,6 @@ Or:<br/>
 Optimizer may take a while to run.<br/>
 Best set of parameters retrieved from the optimization process is the following one:
 
-```
 {
   "name": "opt_xgb_model",
   "params": {
