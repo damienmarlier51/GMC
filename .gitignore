@@ -89,6 +89,8 @@ target/
 *.csv
 !cs-test.csv
 !cs-training.csv
+!def_xgb_model_predictions.csv
+!opt_xgb_model_predictions.csv
 venv_dm_fp
 models/*.pkl
 !def_xgb_model.pkl
