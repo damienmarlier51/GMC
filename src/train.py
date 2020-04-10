@@ -22,6 +22,14 @@ TARGET_COLUMN = "SeriousDlqin2yrs"
 @click.option('--split_ratio', default=1, type=float)
 def train(model_json,
           split_ratio):
+    """
+    Train a model given its parameters and train/validation sets
+
+    Parameters:
+    model_json (str): Filepath to JSON containing model
+    split_ratio (float): Gives split proportion to generate
+    train and validation datasets
+    """
 
     dataset_filepath = "{}/{}".format(raw_dir, "cs-training.csv")
 
@@ -68,6 +76,22 @@ def train_model(X_train,
                 y_validation,
                 params_dict,
                 verbose=True):
+    """
+    Train a model given its parameters and train/validation sets
+
+    Parameters:
+    X_train (numpy.ndarray): Features for training
+    y_train (numpy.ndarray): Target for training
+    X_validation (numpy.ndarray): Features for validation
+    y_validation (numpy.ndarray): Target for validation
+    params_dict (dict): Model parameters
+    verbose (bool):
+
+    Returns:
+    XGBClassifier: Fitted model
+    float: train_AUC
+    float: validation_AUC
+    """
 
     eval_set = [(X_train, y_train)]
     if X_validation.shape[0] > 0:  # In case split_ratio is 1 and we are not keeping any data for validation

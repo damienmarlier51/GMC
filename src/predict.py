@@ -19,6 +19,13 @@ TARGET_COLUMN = "SeriousDlqin2yrs"
 @click.command()
 @click.option('--model_json', default=default_model_json)
 def predict(model_json):
+    """
+    Predict class probabilities
+
+    Parameters:
+    model_json (str): Filepath to JSON containing model
+    parameters
+    """
 
     with open(model_json, "r") as f:
         model_dict = json.loads(f.read())

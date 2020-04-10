@@ -57,6 +57,15 @@ if os.path.exists(trials_filepath) is True:
 
 
 def get_model_loss(params_dict):
+    """
+    Train model and compute loss (1-AUC) on fold validation sets
+
+    Parameters:
+    params_dict (dict): Model parameters
+
+    Returns:
+    dict: Dict with loss and round status
+    """
 
     global max_mean_val_AUC
     global best_params
@@ -102,6 +111,15 @@ def get_model_loss(params_dict):
 
 
 def optimize(random_state=0):
+    """
+    Run parameter optimization
+
+    Parameters:
+    random_state (int): To enable reproducibility
+
+    Returns:
+    dict: Best set of parameters
+    """
 
     space = {
         "n_estimators": hp.quniform("n_estimators", 100, 400, 10),
