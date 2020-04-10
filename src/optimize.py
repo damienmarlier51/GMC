@@ -21,35 +21,39 @@ dataset_filepath = "{}/{}".format(raw_dir, "cs-training.csv")
 default_model_json = "{}/{}".format(params_dir, "init_model.json")
 trials_filepath = "{}/{}".format(model_dir, "opt_trials.pkl")
 
-NFOLDS = 5
+NFOLDS = 10
 TARGET_COLUMN = "SeriousDlqin2yrs"
 
 df_dataset = pd.read_csv(dataset_filepath, index_col=0)
+df_dataset.fillna(value=-1, inplace=True)
 df_dataset = df_dataset.sample(frac=1, random_state=0)
 
 columns = df_dataset.columns.tolist()
-feature_columns = [column for column in columns if column != TARGET_COLUMN]
+feature_columns = sorted([column for column in columns if column != TARGET_COLUMN])
 
 X = df_dataset[feature_columns].values
 Y = df_dataset[TARGET_COLUMN].values
+
+trials = Trials()
+max_mean_val_AUC = 0
+best_params = {}
 
 if os.path.exists(trials_filepath) is True:
 
     trials = pickle.load(open(trials_filepath, "rb"))
     trial_list = [trial for i, trial in enumerate(trials) if "loss" in trial["result"]]
-    best_trial = trial_list[np.argmin([trial["result"]["loss"] for trial in trial_list])]
 
-    max_mean_val_AUC = 1 - best_trial["result"]["loss"]
-    best_params = pd.DataFrame.from_dict(best_trial["misc"]["vals"]) \
-                              .to_dict(orient="records")[0]
+    if len(trial_list) > 0:
 
-    print("Use existing Trial object")
-    print("Nb trials executed: {}".format(len(trials)))
-    print("Current Max Mean Val AUC: {}".format(max_mean_val_AUC))
-    print("Current Best params: {}".format(best_params))
+        best_trial = trial_list[np.argmin([trial["result"]["loss"] for trial in trial_list])]
+        max_mean_val_AUC = 1 - best_trial["result"]["loss"]
+        best_params = pd.DataFrame.from_dict(best_trial["misc"]["vals"]) \
+                                  .to_dict(orient="records")[0]
 
-else:
-    trials = Trials()
+        print("Use existing Trial object")
+        print("Nb trials executed: {}".format(len(trials)))
+        print("Current Max Mean Val AUC: {}".format(max_mean_val_AUC))
+        print("Current Best params: {}".format(best_params))
 
 
 def get_model_loss(params_dict):
@@ -100,12 +104,12 @@ def get_model_loss(params_dict):
 def optimize(random_state=0):
 
     space = {
-        "n_estimators": hp.quniform("n_estimators", 100, 1000, 1),
-        "eta": hp.quniform("eta", 0.025, 0.5, 0.025),
-        "max_depth":  hp.choice("max_depth", np.arange(1, 14, dtype=int)),
+        "n_estimators": hp.quniform("n_estimators", 100, 400, 10),
+        "eta": hp.quniform("eta", 0.01, 0.5, 0.001),
+        "max_depth":  hp.choice("max_depth", np.arange(1, 8, dtype=int)),
         "min_child_weight": hp.quniform("min_child_weight", 1, 6, 1),
-        "subsample": hp.quniform("subsample", 0.5, 1, 0.05),
-        "gamma": hp.quniform("gamma", 0.5, 1, 0.05),
+        "subsample": hp.quniform("subsample", 0.5, 1, 0.01),
+        "gamma": hp.quniform("gamma", 0.5, 1, 0.01),
         "colsample_bytree": hp.quniform("colsample_bytree", 0.5, 1, 0.05),
         "eval_metric": "auc",
         "objective": "binary:logistic",
