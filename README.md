@@ -128,8 +128,9 @@ Or:<br/>
 ```python3 optimize.py```<br/>
 
 Optimizer may take a while to run.<br/>
-Best set of parameters retrieved from the optimization process is the following one:
+Best set of parameters retrieved from after 80 optimization rounds is the following one:
 
+```
 {
   "name": "opt_xgb_model",
   "params": {
