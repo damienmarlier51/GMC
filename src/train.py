@@ -33,10 +33,11 @@ def train(model_json,
     params_dict = model_dict["params"]
 
     df_dataset = pd.read_csv(dataset_filepath, index_col=0)
+    df_dataset.fillna(value=-1, inplace=True)
     df_dataset = df_dataset.sample(frac=1, random_state=0)
 
     columns = df_dataset.columns.tolist()
-    feature_columns = [column for column in columns if column != TARGET_COLUMN]
+    feature_columns = sorted([column for column in columns if column != TARGET_COLUMN])
 
     X = df_dataset[feature_columns].values
     Y = df_dataset[TARGET_COLUMN].values

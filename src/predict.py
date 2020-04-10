@@ -13,6 +13,8 @@ params_dir = "{}/{}".format(project_dir, "params")
 test_filepath = "{}/{}".format(raw_data_dir, "cs-test.csv")
 default_model_json = "{}/{}".format(params_dir, "init_model.json")
 
+TARGET_COLUMN = "SeriousDlqin2yrs"
+
 
 @click.command()
 @click.option('--model_json', default=default_model_json)
@@ -27,10 +29,10 @@ def predict(model_json):
 
     model = pickle.load(open(model_filepath, "rb"))
     df_test = pd.read_csv(test_filepath, index_col=0)
+    df_test.fillna(value=-1, inplace=True)
 
     columns = df_test.columns.tolist()
-    target_column = "SeriousDlqin2yrs"
-    feature_columns = [column for column in columns if column != target_column]
+    feature_columns = sorted([column for column in columns if column != TARGET_COLUMN])
 
     X_test = df_test[feature_columns].values
     Y_pred = model.predict_proba(X_test)[:, 1]
