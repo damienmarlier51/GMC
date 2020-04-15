@@ -1,0 +1,8 @@
+{
+  "name": "def_ffnn_model",
+  "clf": "ffnn",
+  "params": {
+    "fc1_dim": 30,
+    "fc2_dim": 10
+  }
+}

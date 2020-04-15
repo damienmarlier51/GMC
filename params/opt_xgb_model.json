@@ -1,5 +1,6 @@
 {
   "name": "opt_xgb_model",
+  "clf": "xgb",
   "params": {
     "booster": "gbtree",
     "colsample_bytree": 0.9,

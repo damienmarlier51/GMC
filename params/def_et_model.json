@@ -1,0 +1,13 @@
+{
+  "name": "def_et_model",
+  "clf": "et",
+  "params": {
+    "n_jobs": -1,
+    "n_estimators": 500,
+    "max_features": 0.5,
+    "max_depth": 8,
+    "min_samples_leaf": 2,
+    "class_weight": "balanced",
+    "verbose": 0
+  }
+}

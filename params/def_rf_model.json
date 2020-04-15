@@ -1,0 +1,13 @@
+{
+  "name": "def_rf_model",
+  "clf": "rf",
+  "params": {
+    "n_jobs": -1,
+    "n_estimators": 500,
+    "max_depth": 6,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "class_weight": "balanced",
+    "verbose": 0
+  }
+}
